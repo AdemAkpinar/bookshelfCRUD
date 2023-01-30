@@ -1,7 +1,6 @@
-const urls={
-    books:"/books",
-    categories:"/categories"
-}
+const urls = {
+  books: "/books",
+  categories: "/categories",
+};
 
-export default urls
-
+export default urls;

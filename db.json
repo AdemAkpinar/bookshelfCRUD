@@ -2,44 +2,42 @@
   "books": [
     {
       "id": "1",
-      "name": "Yeşil Peri Gecesi",
-      "author": "Ayfer Tunç",
-      "publisher": "Can Yayınları",
-      "isbn": "121234353532",
-      "price": 29.99,
+      "name": "Adem ",
+      "author": "Ak",
+      "isbn": "000000000",
       "categoryId": "1"
     },
     {
       "id": "2",
-      "name": "İnce Memed",
-      "author": "Yaşar Kemal",
-      "publisher": "YKY Yayınları",
-      "isbn": "121234353554",
-      "price": 69.99,
+      "name": "Yasin ",
+      "author": "Ak",
+      "isbn": "000000000",
       "categoryId": "1"
     },
     {
-      "id": "1675024867995",
-      "name": "Yalnızız",
-      "author": "Peyami Safa",
-      "publisher": "Ötüken",
-      "isbn": "5435345345",
-      "price": 69.7,
+      "id": "3",
+      "name": "Ahmet ",
+      "author": "Ak",
+      "isbn": "000000000",
       "categoryId": "1"
     }
   ],
   "categories": [
     {
+      "id": "0",
+      "name": "Grup Seçiniz"
+    },
+    {
       "id": "1",
-      "name": "Roman"
+      "name": "Ailem"
     },
     {
       "id": "2",
-      "name": "Şiir"
+      "name": "Arkadaşlarım"
     },
     {
       "id": "3",
-      "name": "Deneme"
+      "name": "Diğer"
     }
   ]
 }

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 
-import "../assets/styles/buttons.css";
 import api from "../api/api";
 import urls from "../api/urls";
 import actionTypes from "../redux/actions/actionTypes";
@@ -15,7 +14,7 @@ const ListBooks = () => {
   const dispatch = useDispatch();
   const { booksState, categoriesState } = useSelector((state) => state);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
-  const [willDeleteBook,setWillDeleteBook]=useState("")
+  const [willDeleteBook, setWillDeleteBook] = useState("");
 
   const deleteBook = (id) => {
     dispatch({ type: actionTypes.bookActions.DELETE_BOOK_START });
@@ -38,15 +37,15 @@ const ListBooks = () => {
   return (
     <div className="my-5">
       <div className="d-flex justify-content-end">
-        <Link to={"/add-book"} className="btn btn-primary">Kitap Ekle</Link>
+        <Link to={"/add-book"} className="btn btn-warning">
+          Kişi Ekle
+        </Link>
       </div>
       <table className="table table-striped">
         <thead>
           <tr>
             <th scope="col">Sıra No</th>
-            <th scope="col">Adı</th>
-            <th scope="col">Yazar</th>
-            <th scope="col">Kategori</th>
+            <th scope="col">Adı Soyadı</th>
             <th scope="col">İşlemler</th>
           </tr>
         </thead>
@@ -58,20 +57,24 @@ const ListBooks = () => {
             return (
               <tr key={book.id}>
                 <th scope="row">{index + 1}</th>
-                <td>{book.name}</td>
-                <td>{book.author}</td>
-                <td>{myCategory.name}</td>
+                <td>{book.name + " " + book.author}</td>
                 <td>
                   <button
                     onClick={() => {
-                        setShowDeleteModal(true)
-                        setWillDeleteBook(book.id)
+                      setShowDeleteModal(true);
+                      setWillDeleteBook(book.id);
                     }}
-                    className="generalBtn deleteBtn">
+                    className="btn btn-danger btn-sm"
+                  >
                     Sil
                   </button>
-                  <button className="generalBtn editBtn">Güncelle</button>
-                  <Link to={`/book-detail/${book.id}`} className="generalBtn ">Detay</Link>
+                  <button className="btn btn-secondary btn-sm">Gnc</button>
+                  <Link
+                    to={`/book-detail/${book.id}`}
+                    className="btn btn-primary btn-sm"
+                  >
+                    Detay
+                  </Link>
                 </td>
               </tr>
             );
@@ -80,13 +83,13 @@ const ListBooks = () => {
       </table>
       {showDeleteModal === true && (
         <CustomModal
-          title="Silme"
-          message="Silmek istediğinize emin misiniz?"
+          title="Silmek istediğinize emin misiniz?"
+          message=""
           onCancel={() => setShowDeleteModal(false)}
           onConfirm={() => {
-            deleteBook(willDeleteBook)
-            setShowDeleteModal(false)
-        }}
+            deleteBook(willDeleteBook);
+            setShowDeleteModal(false);
+          }}
         />
       )}
     </div>

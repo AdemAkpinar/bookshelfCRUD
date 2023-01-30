@@ -11,7 +11,7 @@ import urls from "../api/urls";
 
 const AddBook = () => {
   const dispatch = useDispatch();
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const { categoriesState } = useSelector((state) => state);
   const [form, setForm] = useState({
     id: String(new Date().getTime()),
@@ -44,7 +44,7 @@ const AddBook = () => {
           type: actionTypes.bookActions.ADD_BOOK,
           payload: form,
         });
-        navigate("/")
+        navigate("/");
       })
       .catch((err) => {});
   };
@@ -55,14 +55,14 @@ const AddBook = () => {
       <div className="container my-5">
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label htmlFor="name" className="form-label">
+            {/* <label htmlFor="name" className="form-label">
               Kitap Adı
-            </label>
+            </label> */}
             <input
               type="text"
               className="form-control"
               id="name"
-              placeholder="Yalnızız"
+              placeholder="ADI"
               value={form.name}
               onChange={(event) =>
                 setForm({ ...form, name: event.target.value })
@@ -70,21 +70,21 @@ const AddBook = () => {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="author" className="form-label">
+            {/* <label htmlFor="author" className="form-label">
               Yazar
-            </label>
+            </label> */}
             <input
               type="text"
               className="form-control"
               id="author"
-              placeholder="Peyami Safa"
+              placeholder="SOY ADI"
               value={form.author}
               onChange={(event) =>
                 setForm({ ...form, author: event.target.value })
               }
             />
           </div>
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <label htmlFor="publisher" className="form-label">
               Yayın Evi
             </label>
@@ -98,8 +98,8 @@ const AddBook = () => {
                 setForm({ ...form, publisher: event.target.value })
               }
             />
-          </div>
-          <div className="mb-3">
+          </div> */}
+          {/* <div className="mb-3">
             <label htmlFor="price" className="form-label">
               Fiyatı
             </label>
@@ -113,16 +113,16 @@ const AddBook = () => {
                 setForm({ ...form, price: Number(event.target.value) })
               }
             />
-          </div>
+          </div> */}
           <div className="mb-3">
-            <label htmlFor="isbn" className="form-label">
+            {/* <label htmlFor="isbn" className="form-label">
               ISBN
-            </label>
+            </label> */}
             <input
               type="number"
               className="form-control"
               id="isbn"
-              placeholder="9789754370577"
+              placeholder="TELEFON NUMARASI"
               value={form.isbn}
               onChange={(event) =>
                 setForm({ ...form, isbn: event.target.value })
@@ -135,7 +135,8 @@ const AddBook = () => {
             value={form.categoryId}
             onChange={(event) =>
               setForm({ ...form, categoryId: event.target.value })
-            }>
+            }
+          >
             {categoriesState.categories.map((item) => (
               <option key={item.id} value={item.id}>
                 {item.name}

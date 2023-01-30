@@ -32,13 +32,26 @@ const BookDetail = () => {
     <div>
       <Header />
       <div className="container my-5">
-        <h3>Kitap Adı: {myBook.name}</h3>
-        <h3>Yazarı: {myBook.author}</h3>
-        <h3>Fiyatı: {myBook.price} &#8378;</h3>
-        <h3>Yayın Evi: {myBook.publisher}</h3>
-        <h3>ISBN: {myBook.isbn}</h3>
-        <h3>Kategori: {bookCategory.name}</h3>
-        <Link to={"/"}>Geri</Link>
+        <table class="table">
+          <tbody>
+            <tr>
+              <th scope="row">Adı Soyadı</th>
+              <td>{myBook.name + " " + myBook.author}</td>
+            </tr>
+            <tr>
+              <th scope="row">Telefon Numarası</th>
+              <td>{myBook.isbn}</td>
+            </tr>
+            <tr>
+              <th scope="row">Grup</th>
+              <td>{bookCategory.name}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <Link className="btn btn-warning" to={"/"}>
+          Geri
+        </Link>
       </div>
     </div>
   );
